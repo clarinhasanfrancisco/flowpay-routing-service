@@ -1,6 +1,3 @@
-CREATE DATABASE flowpay_db;
-USE flowpay_db;
-
 CREATE TABLE teams (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL UNIQUE
