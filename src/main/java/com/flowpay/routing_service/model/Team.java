@@ -20,4 +20,9 @@ public class Team {
 
     @OneToMany(mappedBy = "team")
     private List<Agent> agents;
+
+    public Team(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
