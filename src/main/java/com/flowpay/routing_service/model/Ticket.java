@@ -32,7 +32,7 @@ public class Ticket {
     private Team team;
 
     @ManyToOne
-    @JoinColumn(name = "agent_id", nullable = false)
+    @JoinColumn(name = "agent_id")
     private Agent agent;
 
     @Column(name = "created_at", nullable = false, updatable = false)
