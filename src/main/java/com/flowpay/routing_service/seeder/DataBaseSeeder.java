@@ -44,9 +44,9 @@ public class DataBaseSeeder implements CommandLineRunner {
 
             agentRepository.saveAll(initialAgents);
 
-            System.out.println("RN04: DataBaseSeeder executado com sucesso! 3 times e 9 agentes cadastrados.");
+            System.out.println("Carga inicial de dados concluída com sucesso! Times e agentes padrão cadastrados.");
         } else {
-            System.out.println("RN04: Banco de dados já possui registros. Seeder ignorado.");
+            System.out.println("Banco de dados já possui registros. Carga inicial ignorada.");
         }
     }
 
