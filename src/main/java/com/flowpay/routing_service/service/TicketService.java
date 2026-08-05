@@ -22,10 +22,6 @@ public class TicketService {
     private final TeamRepository teamRepository;
 
     public String mapSubjectToTeamName(String subject) {
-        if (subject == null) {
-            return "OTHER";
-        }
-
         String normalizedSubject = subject.trim().toLowerCase();
 
         if (normalizedSubject.contains("cartao") || normalizedSubject.contains("cartão") || normalizedSubject.contains("cards")) {
@@ -48,6 +44,7 @@ public class TicketService {
         // cria solicitacao
         Ticket ticket = new Ticket();
         ticket.setChatReference(chatReference);
+        ticket.setSubject(subject);
         ticket.setTeam(team);
 
         // procura atendente
