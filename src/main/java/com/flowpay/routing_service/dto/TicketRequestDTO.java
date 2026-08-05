@@ -1,3 +1,11 @@
 package com.flowpay.routing_service.dto;
 
-public record TicketRequestDTO (Long chatReference, String subject){}
+import jakarta.validation.constraints.*;
+
+public record TicketRequestDTO (
+        @NotNull
+        Long chatReference,
+
+        @NotBlank
+        String subject
+){}
