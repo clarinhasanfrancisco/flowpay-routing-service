@@ -1,5 +1,6 @@
 package com.flowpay.routing_service.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
@@ -19,6 +20,7 @@ public class Team {
     private String name;
 
     @OneToMany(mappedBy = "team")
+    @JsonIgnoreProperties("team")
     private List<Agent> agents;
 
     public Team(Long id, String name) {

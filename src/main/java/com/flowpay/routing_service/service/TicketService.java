@@ -48,6 +48,7 @@ public class TicketService {
         // cria solicitacao
         Ticket ticket = new Ticket();
         ticket.setChatReference(chatReference);
+        ticket.setSubject(subject);
         ticket.setTeam(team);
 
         // procura atendente
