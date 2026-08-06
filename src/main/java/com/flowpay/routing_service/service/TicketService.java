@@ -23,10 +23,6 @@ public class TicketService {
     private final AgentRepository agentRepository;
     private final TeamRepository teamRepository;
 
-    public List<Ticket> getAllTickets() {
-        return ticketRepository.findAll();
-    }
-
     public String mapSubjectToTeamName(String subject) {
         String normalizedSubject = subject.trim().toLowerCase();
 

@@ -28,10 +28,4 @@ public class TicketController {
         Ticket finishedTicket = ticketService.finishTicket(id);
         return ResponseEntity.ok(finishedTicket);
     }
-
-    @GetMapping
-    public ResponseEntity<List<Ticket>> getAllTickets() {
-        List<Ticket> tickets = ticketService.getAllTickets();
-        return ResponseEntity.ok(tickets);
-    }
 }
