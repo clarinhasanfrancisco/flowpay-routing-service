@@ -23,9 +23,9 @@ public class TicketController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdTicket);
     }
 
-    @PostMapping("/{id}/finish")
-    public ResponseEntity<Ticket> finishTicket(@PathVariable Long id) {
-        Ticket finishedTicket = ticketService.finishTicket(id);
+    @PostMapping("/{chatReference}/finish")
+    public ResponseEntity<Ticket> finishTicket(@PathVariable Long chatReference) {
+        Ticket finishedTicket = ticketService.finishTicket(chatReference);
         return ResponseEntity.ok(finishedTicket);
     }
 }

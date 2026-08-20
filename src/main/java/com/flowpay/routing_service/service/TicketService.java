@@ -80,9 +80,9 @@ public class TicketService {
     }
 
     @Transactional
-    public Ticket finishTicket(Long ticketId){
-        Ticket ticketToFinish = ticketRepository.findById(ticketId)
-                .orElseThrow(() -> new EntityNotFoundException("Ticket não encontrado com id: " + ticketId));
+    public Ticket finishTicket(Long chatReference){
+        Ticket ticketToFinish = ticketRepository.findByChatReference(chatReference)
+                .orElseThrow(() -> new EntityNotFoundException("Ticket não encontrado com chatReference: " + chatReference));
         if (ticketToFinish.getStatus() != TicketStatus.IN_PROGRESS){
             throw new IllegalStateException("Apenas tickets em andamento (IN_PROGRESS) podem ser finalizados.");
         }

@@ -13,4 +13,6 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
     long countByTeamIdAndStatus(Long teamId, TicketStatus status);
 
     Optional<Ticket> findFirstByTeamAndStatusOrderByCreatedAtAsc(Team team, TicketStatus status);
+
+    Optional<Ticket> findByChatReference(Long chatReference);
 }
