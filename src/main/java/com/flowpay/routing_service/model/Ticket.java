@@ -17,7 +17,7 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "chat_reference", nullable = false)
+    @Column(name = "chat_reference", nullable = false, unique = true)
     private Long chatReference;
 
     @Column(nullable = false, length = 20)
