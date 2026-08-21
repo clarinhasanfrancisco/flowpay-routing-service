@@ -48,8 +48,8 @@ O motor do sistema baseia-se em quatro pilares fundamentais:
 * **Java 21:** Utilização de recursos modernos da linguagem.
 * **Spring Boot 4:** Framework base para construção da API REST.
 * **Spring Data JPA & Hibernate:** Mapeamento objeto-relacional e persistência de dados.
-* **MySQL:** Banco de dados relacional para persistência de dados.
-* **SQL DDL (`schema.sql`):** Script SQL de inicialização responsável por criar as tabelas e relacionamentos na subida da aplicação.* 
+* **PostgreSQL:** Banco de dados relacional hospedado na nuvem (Neon.tech).
+* **Docker:** Containerização da aplicação via Dockerfile para deploy no Render.
 * **Bean Validation:** Validação de contratos dos DTOs na entrada das requisições.
 
 ---
@@ -65,23 +65,27 @@ O motor do sistema baseia-se em quatro pilares fundamentais:
 
 ## Como Executar a Aplicação
 
-### Pré-requisitos
-* **Java JDK 21** ou superior instalado.
-* **Git** instalado.
-* **MySQL 8.x** instalado e rodando na porta `3306`.
+### Deploy em Produção (Nuvem)
+A API está no ar e pronta para uso. Não é necessário clonar o projeto ou instalar dependências para testar as requisições:
+* **Base URL:** [https://flowpay-routing-service.onrender.com/api/v1](https://flowpay-routing-service.onrender.com/api/v1)
 
-### Passo a Passo
-
-1. **Clonar o repositório:**
-   ```bash
-   git clone [https://github.com/clarinhasanfrancisco/flowpay-routing-service.git](https://github.com/clarinhasanfrancisco/flowpay-routing-service.git)
-   cd clarinhasanfrancisco
+Você pode utilizar clientes HTTP como Talend API Tester, Postman ou Insomnia apontando diretamente para as URLs listadas na seção Endpoints da API.
 
 ---
 
 ## Endpoints da API
 
-Base URL: `http://localhost:8080/api/v1`
-
-* `POST /tickets` — Criar e rotear ticket para a equipe responsável.
-* `POST /tickets/{id}/finish` — Finalizar ticket e puxar o próximo da fila.
+**1. Criar e Rotear Ticket**
+* **HTTP Method:** `POST`
+* **Path:** `/tickets`
+* **Headers:** `Content-Type: application/json`
+* **Payload (Body):**
+   ```json
+   {
+     "chatReference": 100200300,
+     "subject": "Empréstimo"
+   }
+   ```
+**2. Finalizar Ticket**
+* **HTTP Method:** `POST`
+* **Path:** `/tickets/{chatReference}/finish`
